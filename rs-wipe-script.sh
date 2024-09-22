@@ -27,6 +27,8 @@ function script_exit {
 
 trap script_exit exit
  
+tmpFile=$(createTempFile "${rs_selfName}")
+
 
 function show_Help {
   echo "${rs_selfName} [option-name] [option-name...] instanceName"
@@ -306,8 +308,6 @@ then
   echo "Error: touch file present for ${rs_selfName}, exiting."
   exit 254
 fi
-
-tmpFile=$(createTempFile "${rs_selfName}")
 
 if [[ ${doInfiniteLoop} -eq 1 ]]
 then
